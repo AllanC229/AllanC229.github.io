@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+	    		<html lang='fr'>
+	    		<head>
+	    		<link rel='stylesheet' href='../resources/style.css'>
+	    		<meta charset='UTF-8'>
+	    		<title>LaFleur</title>
+	    		</head>
+
+
+	    		<body>
+
+	    		<!-- SIDEBAR -->
+	    		<div class='sidebar'>
+	    		    <div class='logo'>Projet Lafleur</div>
+	    		    <div class='menu'>
+	    		        <a href='Accueil'>Accueil</a>
+	    		        <a href='BlackJack'>BlackJack</a>
+	    		        <a href='WebAdherents'>WebAdherents</a>
+	    		        <a href='Hunvre'>HUNVRE</a>
+	    		        <a href='Glpi'>GLPI</a>
+	    		        <a href='Veille'>Veille technologique</a>
+	    				   <a href='https://www.linkedin.com/in/allan-chauvet-92366a3ba' target='blank'> Profil LinkedIN </a>
+	    		    </div>
+	    		</div>
+
+	    		<!-- TOPBAR -->
+	    		<div class='topbar'>
+	    		<h1>Portfolio Allan Chauvet</h1>
+	    		</div>
+
+	    		<div class='content'>
+	    		    <h1>LaFleur</h1>
+
+	    		    <div class='gallery'>
+
+	    		        <div class='image-card'>
+	    		            <img src='../resources/images/LaFleur/lafleur.PNG' alt='Accueil'>
+	    		            <div class='image-info'>
+	    		                <h3>Page d'accueil</h3>
+	    		            </div>
+	    		        </div>
+
+	    		        <div class='image-card'>
+	    		            <img src='../resources/images/LaFleur/codelafleur.PNG' alt='code'>
+	    		            <div class='image-info'>
+	    		                <h3>Code page d'accueil</h3>
+	    		            </div>
+	    		        </div>
+	    		</div>
+
+	    		<div id='lightbox' class='lightbox'>
+	    		<span class='close'>&times;</span>
+	    		<img class='lightbox-content' id='lightbox-img'>
+	    		</div>
+	    		
+	    		<script>
+	    		
+	    		const images = document.querySelectorAll('.image-card img');
+	    		
+	    		const lightbox = document.getElementById('lightbox');
+	    		const lightboxImg = document.getElementById('lightbox-img');
+	    		const closeBtn = document.querySelector('.close');
+	    		
+	    		images.forEach(img => {
+	    		
+	    		    img.addEventListener('click', () => {
+	    		
+	    		        lightbox.style.display = 'flex';
+	    		
+	    		        lightboxImg.src = img.src;
+	    		    });
+	    		});
+	    		
+	    		closeBtn.addEventListener('click', () => {
+	    		
+	    		    lightbox.style.display = 'none';
+	    		});
+	    		
+	    		lightbox.addEventListener('click', (e) => {
+	    		
+	    		    if(e.target === lightbox) {
+	    		
+	    		        lightbox.style.display = 'none';
+	    		    }
+	    		});
+	    		
+	    		</script>
+	    		</body>
+	    		</html>

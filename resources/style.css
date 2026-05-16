@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+:root {
+    --bg: #f4f6f9;
+    --sidebar: #111827;
+    --primary: #3b82f6;
+    --text: #1f2937;
+    --white: #ffffff;
+}
+
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, #f4f7fb, #dfe9f3);
+        color: #333;
+    }
+
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+}
+
+.card {
+	background: white;
+	padding: 20px;
+	border-radius: 12px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+	transition: 0.2s;
+}
+
+.card:hover {
+	transform: translateY(-3px);
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 220px;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 0 20px;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+    z-index: 100;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 220px;
+    height: 100%;
+
+    background: var(--sidebar);
+    color: white;
+
+    padding-top: 20px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.menu a {
+    display: block;
+
+    padding: 12px 20px;
+
+    color: #cbd5e1;
+    text-decoration: none;
+
+    transition: 0.2s;
+
+    border-left: 3px solid transparent;
+}
+
+.menu a:hover {
+    background: #1f2937;
+    border-left: 3px solid var(--primary);
+    color: white;
+}
+
+
+.content {
+    margin-left: 220px;
+    margin-top: 60px;
+    padding: 30px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+
+.gallery {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+}
+
+
+.image-card {
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.image-card img {
+    width: 100%;
+    height: 200px;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+/* ===== TEXTE IMAGE ===== */
+.image-info {
+    padding: 15px;
+}
+
+.image-info h3 {
+    margin: 0 0 8px;
+
+    font-size: 18px;
+}
+
+.image-info p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+    }
+
+    .logo {
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .menu a {
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .topbar {
+        left: 70px;
+    }
+
+    .content {
+        margin-left: 70px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.lightbox {
+    display: none;
+
+    position: fixed;
+    z-index: 999;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.85);
+
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+
+    animation: zoom 0.3s ease;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+
+    top: 20px;
+    right: 40px;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+}
+
+/* curseur sur image */
+.image-card img {
+    cursor: pointer;
+}
+
+   .content h1 {
+        font-size: 2.5em;
+        color: #1f3c88;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .content h1::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 120px;
+        height: 5px;
+        background: linear-gradient(to right, #1f3c88, #4a90e2);
+        border-radius: 10px;
+    }
+
+    .content p {
+        font-size: 1.1em;
+        text-align: justify;
+        margin-bottom: 20px;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
